@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>클라이언트 실행 예</h1>
+    <form id="form" action="">
+      <input id="input" /><button id="btn">Send</button>
+    </form>
+    <div id="content"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+
+      var form = document.getElementById("form");
+      var input = document.getElementById("input");
+      var content = document.getElementById("content");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (input.value !== "ping") {
+          socket.emit("chat message", input.value);
+          content.innerHTML += "Send:" + input.value + "<br>";
+        } else {
+          socket.emit("chat message", input.value);
+          content.innerHTML += "Send: ping" + "<br>";
+        }
+      });
+
+      socket.on("chat message", function (msg) {
+        if (input.value !== "ping") {
+          content.innerHTML += "Received:" + msg + "<br>";
+        } else {
+          content.innerHTML += "Received: pong" + "<br>";
+        }
+      });
+    </script>
+  </body>
+</html>

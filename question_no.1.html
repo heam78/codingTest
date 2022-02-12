@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>question_no.1</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+      //링크가 바로 다운을 받을 수 있게 되어 있어 구글 드라이브에서 파일을 다운받고 코드를 실행해주세요
+      $(document).ready(function () {
+        $.ajax({
+          type: "GET",
+          url: "sample.csv",
+          dataType: "text",
+          success: function (data) {
+            processData(data);
+          },
+        });
+      });
+      function processData(allText) {
+        var lines = [];
+        var allTextLines = allText.split(/\r\n|\n/);
+
+        for (var i = 0; i < allTextLines.length; i++) {
+          var data = allTextLines[i].split(" , ");
+          // console.log(data);
+          lines.push(data);
+        }
+        // console.log(lines);
+
+        lines.forEach((arr) => {
+          // console.log(arr);
+          var minValue = Math.min(...arr);
+          var maxValue = Math.max(...arr);
+          var resultValue = arr.reduce(function (a, b) {
+            return a + b;
+          }, 0);
+          var averValue = resultValue / arr.length;
+          var stddevValue = Math.sqrt(resultValue / (arr.length - 1));
+
+          var compute = document.getElementById("compute");
+          var result = document.createElement("p");
+          var calcu = document.createElement("p");
+          var error = document.createElement("p");
+          compute.appendChild(result);
+
+          result.innerText =
+            minValue + +maxValue + resultValue + averValue + stddevValue;
+          var number_picked = [];
+          var error_picked = [];
+          var number = /\d/g;
+          var nan = /\D/g;
+
+          for (var i = 0; i < arr.length; i += 1) {
+            var numberValue = arr.pop(number);
+            number_picked.push(numberValue);
+          }
+
+          calcu.innerText = "The error values:" + number_picked;
+
+          for (var i = 0; i < arr.length; i += 1) {
+            var errorValue = arr.pop(nan);
+            error_picked.push(errorValue);
+          }
+          console.log(error_picked);
+          error.innerText = "The error values:" + error_picked;
+
+          //문자
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="compute"></div>
+  </body>
+</html>

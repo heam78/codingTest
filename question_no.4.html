@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>question_no.4</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+  </head>
+  <body id="body">
+    <div style="width: 700px; height: 420px">
+      <canvas id="myChart"></canvas>
+    </div>
+    <button id="random">Random</button>
+    <form>
+      <table style="border: 1px solid #000">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">평균 기온</th>
+            <th scope="col">평균 습도</th>
+          </tr>
+        </thead>
+        <tbody id="table">
+          <tr>
+            <td>1월</td>
+            <td><input type="text" value="5" id="11" /></td>
+            <td><input type="text" value="30" id="21" /></td>
+          </tr>
+          <tr>
+            <td>2월</td>
+            <td><input type="text" value="15" id="12" /></td>
+            <td><input type="text" value="45" id="22" /></td>
+          </tr>
+          <tr>
+            <td>3월</td>
+            <td><input type="text" value="20" id="13" /></td>
+            <td><input type="text" value="42" id="23" /></td>
+          </tr>
+          <tr>
+            <td>4월</td>
+            <td><input type="text" value="30" id="14" /></td>
+            <td><input type="text" value="55" id="24" /></td>
+          </tr>
+          <tr>
+            <td>5월</td>
+            <td><input type="text" value="25" id="15" /></td>
+            <td><input type="text" value="94" id="25" /></td>
+          </tr>
+          <tr>
+            <td>6월</td>
+            <td><input type="text" value="20" id="16" /></td>
+            <td><input type="text" value="70" id="26" /></td>
+          </tr>
+          <tr>
+            <td>7월</td>
+            <td><input type="text" value="29" id="17" /></td>
+            <td><input type="text" value="58" id="27" /></td>
+          </tr>
+          <tr>
+            <td>8월</td>
+            <td><input type="text" value="37" id="18" /></td>
+            <td><input type="text" value="63" id="28" /></td>
+          </tr>
+          <tr>
+            <td>9월</td>
+            <td><input type="text" value="28" id="19" /></td>
+            <td><input type="text" value="87" id="29" /></td>
+          </tr>
+          <tr>
+            <td>10월</td>
+            <td><input type="text" value="20" id="110" /></td>
+            <td><input type="text" value="50" id="210" /></td>
+          </tr>
+          <tr>
+            <td>11월</td>
+            <td><input type="text" value="15" id="111" /></td>
+            <td><input type="text" value="88" id="211" /></td>
+          </tr>
+          <tr>
+            <td>12월</td>
+            <td><input type="text" value="20" id="112" /></td>
+            <td><input type="text" value="80" id="212" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" id="reData">데이터 적용</button>
+    </form>
+    <script src="question_no.4.js"></script>
+  </body>
+</html>
